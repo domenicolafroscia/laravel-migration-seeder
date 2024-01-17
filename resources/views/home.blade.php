@@ -12,11 +12,13 @@
                                 <li><strong>Agency:</strong> {{ $train->agency }}</li>
                                 <li><strong>Departure station:</strong> {{ $train->departure_station }}</li>
                                 <li><strong>Arrival station:</strong> {{ $train->arrival_station }}</li>
-                                <li><strong>Departure time:</strong> {{ $train->departure_time }}</li>
-                                <li><strong>Arrival time:</strong> {{ $train->arrival_time }}</li>
+                                <li><strong>Date:</strong> {{ $train->date }}</li>
+                                <li><strong>Departure time:</strong> {{ \Carbon\Carbon::parse($train->departure_time)->format('H:i') }}</li>
+                                <li><strong>Arrival time:</strong> {{ \Carbon\Carbon::parse($train->arrival_time)->format('H:i') }}</li>
                                 <li><strong>Train code:</strong> {{ $train->train_code }}</li>
                                 <li><strong>Carriages number:</strong> {{ $train->carriages_number }}</li>
-                                <li><strong>State:</strong> {{ $train->in_time ? "In orario" : "Non in orario"}}</li>
+                                <li><strong>State:</strong> {{ $train->in_time === 1 ? "In orario" : "Non in orario"}}</li>
+                                <li><strong>Deleted:</strong> {{ $train->deleted === 1 ? "Cancellato" : "" }}</li>
                             </ul>
                         </div>
                     </div>
